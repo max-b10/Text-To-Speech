@@ -1,10 +1,14 @@
-console.log("app.js running");
+const portfolioButton = document.querySelector("#return-button");
 
 const speechSynthesis = window.speechSynthesis;
 const form = document.querySelector("#form");
 const textArea = document.querySelector("#enterText");
 const speakButton = document.querySelector("#speakButton");
 const chooseVoice = document.querySelector("#choose-voice");
+
+portfolioButton.addEventListener("click", () => {
+  window.location.replace("https://portfoliomax.netlify.app");
+});
 
 let allVoices = [];
 
@@ -27,6 +31,13 @@ populateVoices();
 if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = populateVoices;
 }
+// const isChrome = !!window.chrome && !!window.chrome.webstore;
+
+// if (isChrome) {
+//   if (speechSynthesis.onvoiceschanged !== undefined) {
+//     speechSynthesis.onvoiceschanged = populateVoices();
+//   }
+// }
 
 function speakText(text) {
   const speechText = new SpeechSynthesisUtterance(textArea.value);
@@ -41,7 +52,7 @@ function speakText(text) {
       speechText.voice = voice;
     }
   });
-  console.log(speechText);
+  // console.log(speechText);
   speechText.volume = 1;
   speechText.rate = 1;
   speechText.pitch = 1;
