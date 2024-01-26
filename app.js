@@ -7,7 +7,7 @@ const speakButton = document.querySelector("#speakButton");
 const chooseVoice = document.querySelector("#choose-voice");
 
 portfolioButton.addEventListener("click", () => {
-  window.location.replace("https://portfoliomax.netlify.app");
+  window.location.replace("https://maxbungay.com");
 });
 
 let allVoices = [];
@@ -43,9 +43,8 @@ function speakText(text) {
   const speechText = new SpeechSynthesisUtterance(textArea.value);
 
   // Select the voice from the options dropdown:
-  const selectedVoice = chooseVoice.selectedOptions[0].getAttribute(
-    "data-name"
-  );
+  const selectedVoice =
+    chooseVoice.selectedOptions[0].getAttribute("data-name");
 
   allVoices.forEach((voice) => {
     if (voice.name === selectedVoice) {
